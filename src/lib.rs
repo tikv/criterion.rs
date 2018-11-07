@@ -580,6 +580,11 @@ impl Default for Criterion {
 }
 
 impl Criterion {
+    /// Whether current instance is running in test mode.
+    pub fn is_test_mode(&self) -> bool {
+        self.test_mode
+    }
+
     /// Changes the default size of the sample for benchmarks run with this runner.
     ///
     /// A bigger sample should yield more accurate results if paired with a sufficiently large
