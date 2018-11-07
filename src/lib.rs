@@ -771,7 +771,7 @@ impl Criterion {
     /// Configure this criterion struct based on the command-line arguments to
     /// this process.
     pub fn configure_from_args(mut self) -> Criterion {
-        use clap::{App, Arg};
+        use clap::{App, Arg, AppSettings};
         let matches = App::new("Criterion Benchmark")
             .arg(Arg::with_name("FILTER")
                 .help("Skip benchmarks whose names do not contain FILTER.")
@@ -809,13 +809,12 @@ impl Criterion {
             .arg(Arg::with_name("measure-only")
                 .long("measure-only")
                 .help("Only perform measurements; do no analysis or storage of results. This is useful eg. when profiling the benchmarks, to reduce clutter in the profiling data."))
-            .arg(Arg::with_name("test")
-                .long("test")
-                .help("Run the benchmarks once, to verify that they execute successfully, but do not measure or report the results."))
-            //Ignored but always passed to benchmark executables
             .arg(Arg::with_name("bench")
-                .hidden(true)
-                .long("bench"))
+                .long("bench")
+                .help("Run benchmarks"))
+            .arg(Arg::with_name("nocapture")
+                .long("nocapture")
+                .hidden(true))
             .arg(Arg::with_name("version")
                 .hidden(true)
                 .short("V")
@@ -874,7 +873,7 @@ scripts alongside the generated plots.
         reports.push(Box::new(FileCsvReport));
 
         self.measure_only = matches.is_present("measure-only");
-        self.test_mode = matches.is_present("test");
+        self.test_mode = !matches.is_present("bench");
         if matches.is_present("list") {
             self.test_mode = true;
             self.list_mode = true;
