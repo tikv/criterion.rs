@@ -1,0 +1,320 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Frequently Asked Questions - Criterion.rs Documentation</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="User Guide and Other Prose Documentation For Criterion.rs">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body class="light">
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">var path_to_root = "";</script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { } 
+            if (theme === null || theme === undefined) { theme = 'light'; }
+            document.body.className = theme;
+            document.querySelector('html').className = theme + ' js';
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <ol class="chapter"><li><a href="criterion_rs.html"><strong aria-hidden="true">1.</strong> Criterion.rs</a></li><li><ol class="section"><li><a href="getting_started.html"><strong aria-hidden="true">1.1.</strong> Getting Started</a></li></ol></li><li><a href="user_guide/user_guide.html"><strong aria-hidden="true">2.</strong> User Guide</a></li><li><ol class="section"><li><a href="user_guide/migrating_from_libtest.html"><strong aria-hidden="true">2.1.</strong> Migrating from libtest</a></li><li><a href="user_guide/command_line_output.html"><strong aria-hidden="true">2.2.</strong> Command-Line Output</a></li><li><a href="user_guide/command_line_options.html"><strong aria-hidden="true">2.3.</strong> Command-Line Options</a></li><li><a href="user_guide/html_report.html"><strong aria-hidden="true">2.4.</strong> HTML Report</a></li><li><a href="user_guide/plots_and_graphs.html"><strong aria-hidden="true">2.5.</strong> Plots &amp; Graphs</a></li><li><a href="user_guide/benchmarking_with_inputs.html"><strong aria-hidden="true">2.6.</strong> Benchmarking With Inputs</a></li><li><a href="user_guide/advanced_configuration.html"><strong aria-hidden="true">2.7.</strong> Advanced Configuration</a></li><li><a href="user_guide/comparing_functions.html"><strong aria-hidden="true">2.8.</strong> Comparing Functions</a></li><li><a href="user_guide/external_programs.html"><strong aria-hidden="true">2.9.</strong> Benchmarking External Programs</a></li><li><a href="user_guide/csv_output.html"><strong aria-hidden="true">2.10.</strong> CSV Output</a></li><li><a href="user_guide/known_limitations.html"><strong aria-hidden="true">2.11.</strong> Known Limitations</a></li></ol></li><li><a href="analysis.html"><strong aria-hidden="true">3.</strong> Analysis Process</a></li><li><a href="faq.html" class="active"><strong aria-hidden="true">4.</strong> Frequently Asked Questions</a></li></ol>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light <span class="default">(default)</span></button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Criterion.rs Documentation</h1> 
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <a class="header" href="#frequently-asked-questions" id="frequently-asked-questions"><h2>Frequently Asked Questions</h2></a>
+<a class="header" href="#how-should-i-run-criterionrs-benchmarks-in-a-ci-pipeline" id="how-should-i-run-criterionrs-benchmarks-in-a-ci-pipeline"><h3>How Should I Run Criterion.rs Benchmarks In A CI Pipeline?</h3></a>
+<p>Criterion.rs benchmarks can be run as part of a CI pipeline just as they
+normally would on the command line - simply run <code>cargo bench</code>.</p>
+<p>To compare the master branch to a pull request, you could run the benchmarks on
+the master branch to set a baseline, then run them again with the pull request
+branch. An example script for Travis-CI might be:</p>
+<pre><code class="language-bash">#!/usr/bin/env bash
+
+if [ &quot;${TRAVIS_PULL_REQUEST_BRANCH:-$TRAVIS_BRANCH}&quot; != &quot;master&quot; ] &amp;&amp; [ &quot;$TRAVIS_RUST_VERSION&quot; == &quot;nightly&quot; ]; then
+    REMOTE_URL=&quot;$(git config --get remote.origin.url)&quot;;
+    cd ${TRAVIS_BUILD_DIR}/.. &amp;&amp; \
+    git clone ${REMOTE_URL} &quot;${TRAVIS_REPO_SLUG}-bench&quot; &amp;&amp; \
+    cd  &quot;${TRAVIS_REPO_SLUG}-bench&quot; &amp;&amp; \
+    # Bench master
+    git checkout master &amp;&amp; \
+    cargo bench &amp;&amp; \
+    # Bench pull request
+    git checkout ${TRAVIS_COMMIT} &amp;&amp; \
+    cargo bench;
+fi
+</code></pre>
+<p>(Thanks to <a href="https://beachape.com/blog/2016/11/02/rust-performance-testing-on-travis-ci/">BeachApe</a> for the script on which this is based.)</p>
+<p>Note that cloud CI providers like Travis-CI and Appveyor introduce a great deal
+of noise into the benchmarking process. For example, unpredictable load on the
+physical hosts of their build VM's. Benchmarks measured on such services tend
+to be unreliable, so you should be skeptical of the results. In particular,
+benchmarks that detect performance regressions should not cause the build to
+fail, and apparent performance regressions should be verified manually before
+rejecting a pull request.</p>
+<a class="header" href="#cargo-bench-gives-unrecognized-option-errors-for-valid-command-line-options" id="cargo-bench-gives-unrecognized-option-errors-for-valid-command-line-options"><h3><code>cargo bench</code> Gives &quot;Unrecognized Option&quot; Errors for Valid Command-line Options</h3></a>
+<p>By default, Cargo implicitly adds a <code>libtest</code> benchmark harness to your crate when benchmarking, to
+handle any <code>#[bench]</code> functions, even if you have none. It compiles and runs this executable first,
+before any of the other benchmarks. Normally, this is fine - it detects that there are no <code>libtest</code>
+benchmarks to execute and exits, allowing Cargo to move on to the real benchmarks. Unfortunately,
+it checks the command-line arguments first, and panics when it finds one it doesn't understand.
+This causes Cargo to stop benchmarking early, and it never executes the Criterion.rs benchmarks.</p>
+<p>This will occur when running <code>cargo bench</code> with any argument that Criterion.rs supports but <code>libtest</code>
+does not. For example, <code>--verbose</code> and <code>--save-baseline</code> will cause this issue, while <code>--help</code> will
+not. There are two ways to work around this at present:</p>
+<p>You could run only your Criterion benchmark, like so:</p>
+<p><code>cargo bench --bench my_benchmark -- --verbose</code></p>
+<p>Note that <code>my_benchmark</code> here corresponds to the name of your benchmark in your
+<code>Cargo.toml</code> file.</p>
+<p>Another option is to disable benchmarks for your lib or app crate. For example,
+for library crates, you could add this to your <code>Cargo.toml</code> file:</p>
+<pre><code class="language-toml">[lib]
+bench = false
+</code></pre>
+<p>Of course, this only works if you define all of your benchmarks in the
+<code>benches</code> directory.</p>
+<p>See <a href="https://github.com/rust-lang/rust/issues/47241">Rust Issue #47241</a> for
+more details.</p>
+<a class="header" href="#how-should-i-benchmark-small-functions" id="how-should-i-benchmark-small-functions"><h3>How Should I Benchmark Small Functions?</h3></a>
+<p>Exactly the same way as you would benchmark any other function.</p>
+<p>It is sometimes suggested that benchmarks of small (nanosecond-scale) functions should iterate the
+function to be benchmarked many times internally to reduce the impact of measurement overhead.
+This is <em>not</em> required with Criterion.rs, and it is not recommended.</p>
+<p>To see this, consider the following benchmark:</p>
+<pre><pre class="playpen"><code class="language-rust">
+# #![allow(unused_variables)]
+#fn main() {
+fn compare_small(c: &amp;mut Criterion) {
+    use criterion::black_box;
+    use criterion::ParameterizedBenchmark;
+
+    c.bench(
+        &quot;small&quot;,
+        ParameterizedBenchmark::new(&quot;unlooped&quot;, |b, i| b.iter(|| i + 10), vec![10])
+            .with_function(&quot;looped&quot;, |b, i| b.iter(|| {
+                for _ in 0..10000 {
+                    black_box(i + 10);
+                }
+            }))
+    );
+}
+#}</code></pre></pre>
+<p>This benchmark simply adds two numbers - just about the smallest function that could be performed.
+On my computer, this produces the following output:</p>
+<pre><code>small/unlooped          time:   [270.00 ps 270.78 ps 271.56 ps]
+Found 2 outliers among 100 measurements (2.00%)
+  2 (2.00%) high severe
+small/looped            time:   [2.7051 us 2.7142 us 2.7238 us]
+Found 5 outliers among 100 measurements (5.00%)
+  3 (3.00%) high mild
+  2 (2.00%) high severe
+</code></pre>
+<p>2.714 microseconds/10000 gives 271.4 picoseconds, or pretty much the same
+result. Interestingly, this is slightly more than one cycle of my 4th-gen Core
+i7's maximum clock frequency of 4.4 GHz, which shows how good the pipelining is
+on modern CPU's. Regardless, Criterion.rs is able to accurately measure
+functions all the way down to single instructions. See the <a href="./analysis.html">Analysis
+Process</a> page for more details on how Criterion.rs performs its
+measurements.</p>
+<a class="header" href="#when-should-i-use-criterionblack_box" id="when-should-i-use-criterionblack_box"><h3>When Should I Use <code>criterion::black_box</code>?</h3></a>
+<p><code>black_box</code> is a function which prevents certain compiler optimizations. Benchmarks are often
+slightly artificial in nature and the compiler can take advantage of that to generate faster code
+when compiling the benchmarks than it would in real usage. In particular, it is common for
+benchmarked functions to be called with constant parameters, and in some cases rustc can
+evaluate the function entirely at compile time and replace the function call with a constant.
+This can produce unnaturally fast benchmarks that don't represent how some code would perform
+when called normally. Therefore, it's useful to black-box the constant input to prevent this
+optimization.</p>
+<p>However, you might have a function which you expect to be called with one or more constant
+parameters. In this case, you might want to write your benchmark to represent that scenario instead,
+and allow the compiler to optimize the constant parameters.</p>
+<p>For the most part, Criterion.rs handles this for you - if you use parameterized benchmarks, the
+parameters are automatically black-boxed by Criterion.rs so you don't need to do anything. If you're
+writing an un-parameterized benchmark of a function that takes an argument, however, this may be
+worth considering.</p>
+<a class="header" href="#cargo-prints-a-warning-about-explicit-bench-sections-in-cargotoml" id="cargo-prints-a-warning-about-explicit-bench-sections-in-cargotoml"><h3>Cargo Prints a Warning About Explicit [[bench]] Sections in Cargo.toml</h3></a>
+<p>Currently, Cargo treats any <code>*.rs</code> file in the <code>benches</code> directory as a
+benchmark, unless there are one or more <code>[[bench]]</code> sections in the
+<code>Cargo.toml</code> file. In that case, the auto-discovery is disabled
+entirely.</p>
+<p>In Rust 2018 edition, Cargo will be changed so that <code>[[bench]]</code> no longer
+disables the auto-discovery. If your <code>benches</code> directory contains source files
+that are not benchmarks, this could break your build when you update, as Cargo
+will attempt to compile them as benchmarks and fail.</p>
+<p>There are two ways to prevent this breakage from happening. You can explicitly
+turn off the autodiscovery like so:</p>
+<pre><code class="language-toml">[[package]]
+autobenches = false
+</code></pre>
+<p>The other option is to move those non-benchmark files to a subdirectory (eg.
+<code>benches/benchmark_code</code>) where they will no longer be detected as benchmarks.
+I would recommend the latter option.</p>
+<p>Note that a file which contains a <code>criterion_main!</code> is a valid benchmark and can
+safely stay where it is.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+                            <a rel="prev" href="analysis.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+                    <a href="analysis.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+
+    </body>
+</html>
